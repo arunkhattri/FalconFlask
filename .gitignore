@@ -7,3 +7,4 @@
 */*.db
 */*.db
 /microblog/app/templates/register.html~
+/microblog/app/templates/user.html~
