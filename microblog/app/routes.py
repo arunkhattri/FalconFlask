@@ -81,7 +81,7 @@ def register():
 
 
 # User Profile view function
-@app.route('user/<username>')
+@app.route('/user/<username>')
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
