@@ -103,7 +103,7 @@ def before_request():
 
 
 # Edit Profile view function
-@app.route('edit_profile', methods=['GET', 'POST'])
+@app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
     form = EditProfileForm()
