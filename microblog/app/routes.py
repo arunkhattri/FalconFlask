@@ -6,6 +6,7 @@ from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
 from flask_login import login_required
 from app.models import User
+from datetime import datetime
 
 
 @app.route('/')
@@ -91,3 +92,11 @@ def user(username):
         {'author': user, 'body': 'Test post #3'},
     ]
     return render_template('user.html', user=user, posts=posts)
+
+
+# Record time of last visit
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
