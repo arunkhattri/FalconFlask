@@ -8,3 +8,4 @@
 */*.db
 /microblog/app/templates/register.html~
 /microblog/app/templates/user.html~
+/microblog/app/templates/_post.html~
