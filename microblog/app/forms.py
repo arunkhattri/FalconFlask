@@ -6,6 +6,7 @@ from wtforms.validators import Length
 from app.models import User
 
 
+# LoginForm
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -13,6 +14,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 
+# RegistrationForm
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -49,3 +51,9 @@ class EditProfileForm(FlaskForm):
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
                 raise ValidationError('Please use a different username')
+
+
+# Blog Submission Form
+class PostForm(FlaskForm):
+    post = TextAreaField('Say something', validators=[DataRequired()])
+    submit = SubmitField('Submit')
