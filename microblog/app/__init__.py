@@ -1,10 +1,11 @@
-from flask import Flask
 from config import Config
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask import Flask
+from flask-mail import Mail
 from flask_login import LoginManager
-import logging
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 from logging.handlers import SMTPHandler, RotatingFileHandler
+import logging
 import os
 
 app = Flask(__name__, static_url_path="", static_folder="images")
@@ -13,6 +14,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
+mail = Mail(app)
 
 # write log and send by emails
 if not app.debug:

@@ -14,3 +14,5 @@
 /microblog/app/templates/500.html~
 /microblog/app/TAGS
 /microblog/app/templates/TAGS
+/microblog/app/templates/reset_password.html~
+/microblog/app/templates/reset_password_request.html~
