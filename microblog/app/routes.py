@@ -179,7 +179,7 @@ def explore():
 
 
 # reset password request view function
-@app.route('reset_password_request', methods=['GET', 'POST'])
+@app.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
